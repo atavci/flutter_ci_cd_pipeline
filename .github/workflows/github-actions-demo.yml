@@ -37,8 +37,8 @@ jobs:
       - uses: subosito/flutter-action@v2
         with:
           flutter-version: "2.10.4"
-          working-directory: /flutter_project
       - run: |
+          cd /flutter_project
           flutter pub
           flutter
           flutter build
