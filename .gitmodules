@@ -1,0 +1,3 @@
+[submodule "flutter_project"]
+	path = flutter_project
+	url = https://github.com/atavci/flutter_user_list_calendar.git
