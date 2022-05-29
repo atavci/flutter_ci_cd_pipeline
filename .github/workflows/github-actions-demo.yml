@@ -38,7 +38,7 @@ jobs:
         with:
           flutter-version: "2.10.4"
       - run: |
-          cd /flutter_project
+          ls -la
           flutter pub
           flutter
           flutter build
