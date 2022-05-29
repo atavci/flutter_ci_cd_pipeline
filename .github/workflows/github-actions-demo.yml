@@ -39,7 +39,9 @@ jobs:
           flutter-version: "2.10.4"
       - run: |
           ls -la
-          flutter pub
-          flutter
-          flutter build
-          flutter build appbundle
+          cd flutter_project
+          flutter pub get
+          flutter test
+          flutter build apk
+          echo "Android Build Completed"
+          ls -la
