@@ -17,9 +17,13 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
-  Flutter-Android-Build:
+  android_build_and_publish:
     runs-on: ubuntu-latest
     name: Flutter Build
+    strategy:
+      fail-fast: true
+      matrix:
+        os: [ubuntu-latest, windows-latest, macOS-latest]
     defaults:
       run:
         working-directory: flutter_project # submodule dir
@@ -33,10 +37,15 @@ jobs:
           java-version: "8"
       - uses: subosito/flutter-action@v2
         with:
-          flutter-version: '2.10.4'
+          flutter-version: "2.10.4"
       - run: |
           flutter pub get
           flutter test
           flutter build apk
           echo "Android Build Completed"
           ls -la
+      - name: Upload APK
+        uses: actions/upload-artifact@v1
+        with:
+          name: flutter_apk
+          path: build/app/outputs/flutter-apk/app-debug.apk
