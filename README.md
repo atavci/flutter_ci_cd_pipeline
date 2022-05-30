@@ -1,5 +1,5 @@
 # Flutter CI/CD Pipeline using Github Actions
-
+![Build and Deploy Action](https://github.com/atavci/flutter_ci_cd_pipeline/actions/workflows/flutter-github-action.yml/badge.svg)</br>
 A sample project for building Flutter CI/CD Pipeline using Github Actions.
 
 ### Pipeline steps:
