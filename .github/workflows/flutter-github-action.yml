@@ -20,6 +20,10 @@ jobs:
   Flutter-Android-Build:
     runs-on: ubuntu-latest
     name: Flutter Build
+    strategy:
+      fail-fast: true
+      matrix:
+        os: [ubuntu-latest, windows-latest, macOS-latest]
     defaults:
       run:
         working-directory: flutter_project # submodule dir
@@ -40,3 +44,6 @@ jobs:
           flutter build apk
           echo "Android Build Completed"
           ls -la
+  PublishArtifact:
+      runs-on: ubuntu-latest
+      needs: build
